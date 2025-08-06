@@ -43,7 +43,7 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="fancy-heading text-sm font-medium hover:text-primary transition-colors"
               >
                 {item.label}
               </button>
@@ -70,12 +70,12 @@ const Navigation = () => {
               </Button>
             </SheetTrigger>
             <SheetContent>
-              <div className="flex flex-col space-y-4 mt-8">
+                <div className="flex flex-col space-y-4 mt-8">
                 {navItems.map((item) => (
                   <button
                     key={item.label}
                     onClick={() => scrollToSection(item.href)}
-                    className="text-left text-lg font-medium hover:text-primary transition-colors"
+                    className="fancy-heading text-left text-lg font-medium hover:text-primary transition-colors"
                   >
                     {item.label}
                   </button>

@@ -13,9 +13,6 @@ const Index = () => {
   const stats = [
     { number: "350,000", label: "Cardiac arrests occur outside hospitals annually in the U.S." },
     { number: "10%", label: "Current survival rate for out-of-hospital cardiac arrest" },
-    { number: "10,000+", label: "Lives to Impact" },
-    { number: "50", label: "Student Volunteers" },
-    { number: "25", label: "School Chapters" },
     { number: "6", label: "Partner Organizations" },
   ];
 
@@ -63,7 +60,7 @@ const Index = () => {
           <h1 className="fancy-heading text-6xl md:text-7xl font-bold mb-6 leading-tight">
             Join the Movement.
             <br />
-            Save a Life.
+            <span className="text-destructive">Save a Life.</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
             Action4AED is dedicated to AED awareness, hands-on CPR education, and outreach to underserved communities. 
@@ -80,8 +77,8 @@ const Index = () => {
             </Button>
             <Button 
               size="lg" 
-              variant="outline" 
-              className="border-white/80 text-white hover:bg-white/10 font-semibold px-8 py-4 text-lg"
+              variant="secondary" 
+              className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 font-semibold px-8 py-4 text-lg"
               onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSe4-LWUT3cuagyq-fOCK6OLQafkF4FlqATcIr7yiAG5-XSNlA/viewform', '_blank')}
             >
               Become a Volunteer
@@ -125,7 +122,7 @@ const Index = () => {
             <p className="text-center text-primary font-semibold mt-4">— Action4AED Mission Statement</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
@@ -218,25 +215,52 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="fancy-heading text-2xl font-bold mb-4">Action4AED</h3>
-          <p className="text-primary-foreground/80 mb-6">
-            Dedicated to AED awareness and life-saving education
-          </p>
-          <div className="flex justify-center space-x-6">
-            <a
-              href="https://www.instagram.com/action4aed/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary-foreground/80 transition-colors"
-            >
-              Instagram
-            </a>
+      <footer className="bg-primary text-primary-foreground py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            {/* Brand */}
+            <div className="md:col-span-1">
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="bg-primary-foreground text-primary px-2 py-1 rounded font-bold text-sm">
+                  A4A
+                </div>
+              </div>
+              <h3 className="fancy-heading text-xl font-bold mb-2">Action4AED</h3>
+              <p className="text-primary-foreground/80 text-sm leading-relaxed">
+                Youth-led nonprofit dedicated to AED awareness, hands-on CPR education, and outreach to underserved communities.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div className="md:col-span-1">
+              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">About Us</a></li>
+                <li><a href="#projects" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Our Work</a></li>
+                <li><a href="#get-involved" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Volunteer</a></li>
+                <li><a href="#projects" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Projects</a></li>
+                <li><a href="#partners" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Partners</a></li>
+                <li><button className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left">Donate</button></li>
+              </ul>
+            </div>
+
+            {/* Get in Touch */}
+            <div className="md:col-span-2">
+              <h4 className="font-semibold mb-4">Get in Touch</h4>
+              <p className="text-primary-foreground/80 text-sm mb-4">action4aed@gmail.com</p>
+              <p className="text-primary-foreground/80 text-sm mb-4">Want to get involved or learn more?</p>
+              <button className="bg-primary-foreground text-primary px-4 py-2 rounded font-semibold text-sm hover:bg-primary-foreground/90 transition-colors">
+                Join our mission →
+              </button>
+            </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-primary-foreground/20">
+
+          <div className="pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-primary-foreground/60 mb-4 md:mb-0">
+              © 2024 Action4AED. All rights reserved.
+            </p>
             <p className="text-sm text-primary-foreground/60">
-              © 2024 Action4AED. All rights reserved. 501(c)(3) nonprofit organization.
+              501(c)(3) Nonprofit Organization
             </p>
           </div>
         </div>
