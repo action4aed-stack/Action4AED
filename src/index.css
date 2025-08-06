@@ -41,13 +41,13 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    /* Rainbow gradient colors - pastel versions */
-    --rainbow-red: 0 60% 70%;
-    --rainbow-orange: 30 65% 70%;
-    --rainbow-yellow: 60 55% 75%;
-    --rainbow-green: 120 40% 70%;
-    --rainbow-blue: 240 50% 75%;
-    --rainbow-purple: 270 45% 75%;
+    /* Rainbow gradient colors - slightly brighter pastels */
+    --rainbow-red: 0 70% 65%;
+    --rainbow-orange: 30 75% 65%;
+    --rainbow-yellow: 60 70% 70%;
+    --rainbow-green: 120 55% 65%;
+    --rainbow-blue: 240 65% 70%;
+    --rainbow-purple: 270 60% 70%;
 
     /* Custom gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));

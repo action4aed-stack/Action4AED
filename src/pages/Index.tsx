@@ -215,26 +215,26 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-16">
+      <footer className="bg-primary text-primary-foreground py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
+          <div className="grid md:grid-cols-4 gap-12 mb-16">
             {/* Brand */}
             <div className="md:col-span-1">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="bg-primary-foreground text-primary px-2 py-1 rounded font-bold text-sm">
+              <div className="flex items-center space-x-2 mb-6">
+                <div className="bg-primary-foreground text-primary px-3 py-2 rounded font-bold text-base">
                   A4A
                 </div>
               </div>
-              <h3 className="fancy-heading text-xl font-bold mb-2">Action4AED</h3>
-              <p className="text-primary-foreground/80 text-sm leading-relaxed">
+              <h3 className="fancy-heading text-2xl font-bold mb-4">Action4AED</h3>
+              <p className="text-primary-foreground/80 text-base leading-relaxed">
                 Youth-led nonprofit dedicated to AED awareness, hands-on CPR education, and outreach to underserved communities.
               </p>
             </div>
 
             {/* Quick Links */}
             <div className="md:col-span-1">
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-semibold mb-6 text-lg">Quick Links</h4>
+              <ul className="space-y-3 text-base">
                 <li><a href="#about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">About Us</a></li>
                 <li><a href="#projects" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Our Work</a></li>
                 <li><a href="#get-involved" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Volunteer</a></li>
@@ -246,20 +246,20 @@ const Index = () => {
 
             {/* Get in Touch */}
             <div className="md:col-span-2">
-              <h4 className="font-semibold mb-4">Get in Touch</h4>
-              <p className="text-primary-foreground/80 text-sm mb-4">action4aed@gmail.com</p>
-              <p className="text-primary-foreground/80 text-sm mb-4">Want to get involved or learn more?</p>
-              <button className="bg-primary-foreground text-primary px-4 py-2 rounded font-semibold text-sm hover:bg-primary-foreground/90 transition-colors">
+              <h4 className="font-semibold mb-6 text-lg">Get in Touch</h4>
+              <p className="text-primary-foreground/80 text-base mb-6">action4aed@gmail.com</p>
+              <p className="text-primary-foreground/80 text-base mb-6">Want to get involved or learn more?</p>
+              <button className="bg-primary-foreground text-primary px-6 py-3 rounded font-semibold text-base hover:bg-primary-foreground/90 transition-colors">
                 Join our mission →
               </button>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-primary-foreground/60 mb-4 md:mb-0">
+          <div className="pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-base text-primary-foreground/60">
               © 2024 Action4AED. All rights reserved.
             </p>
-            <p className="text-sm text-primary-foreground/60">
+            <p className="text-base text-primary-foreground/60">
               501(c)(3) Nonprofit Organization
             </p>
           </div>
