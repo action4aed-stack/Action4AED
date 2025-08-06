@@ -26,7 +26,9 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					light: 'hsl(var(--primary-light))',
+					dark: 'hsl(var(--primary-dark))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -61,7 +63,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				rainbow: {
+					red: 'hsl(var(--rainbow-red))',
+					orange: 'hsl(var(--rainbow-orange))',
+					yellow: 'hsl(var(--rainbow-yellow))',
+					green: 'hsl(var(--rainbow-green))',
+					blue: 'hsl(var(--rainbow-blue))',
+					purple: 'hsl(var(--rainbow-purple))'
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-rainbow': 'var(--gradient-rainbow)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
