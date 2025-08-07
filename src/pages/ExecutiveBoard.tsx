@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
 import Divya from "../assets/Divya.jpg";
-import Deepthi from "../assets/Deepthi.jpg";
+import Deepthi from "../assets/Deepthi.png"; // Added Deepthi image import
 import Adya from "../assets/Adya.jpg";
 import Hasit from "../assets/Hasit.jpg";
 import Meghana from "../assets/Meghana.jpg";
@@ -26,7 +26,7 @@ const teamMembers = [
     name: "Divya Paruchuri and Deepthisri Paruchuri",
     role: "Founders",
     bio: "We created Action4AED because we've seen firsthand how access to life-saving tools like AEDs and education about CPR can mean the difference between life and death. However, millions around the world still live without them and we felt a deep responsibility to take action. Our passion for global health equity and preventative care inspired us to help launch Action4AED, with the mission of raising cardiac awareness and providing AEDs to underserved communities.",
-    image: Divya,
+    images: [Divya, Deepthi], // Changed to array for founders
   },
   {
     name: "Adya Mishra",
@@ -125,11 +125,19 @@ const ExecutiveBoard = () => {
                 className="group hover:shadow-xl transition-shadow duration-300 border-2 border-transparent hover:border-primary/50"
               >
                 <CardHeader className="text-center pb-2">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-24 h-24 mx-auto rounded-full object-cover shadow-md mb-4 transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  />
+                  {member.images ? (
+                    <div className="flex justify-center gap-4 mb-4">
+                      {member.images.map((img, i) => (
+                        <img
+                          key={i}
+                          src={img}
+                          alt={`${member.name.split(" and ")[i]}`}
+                          className="w-36 h-36 rounded-full object-cover shadow-md transition-transform duration-300 ease-in-out group-hover:scale-105"
+                        />
+                      ))}
+                    </div>
+                  ) : null}
+
                   <CardTitle className="fancy-heading text-xl leading-tight mb-2">
                     {member.name}
                   </CardTitle>
@@ -137,9 +145,17 @@ const ExecutiveBoard = () => {
                 </CardHeader>
 
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-muted-foreground leading-relaxed text-sm mb-4">
                     {member.bio}
                   </p>
+
+                  {!member.images && (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-24 h-24 mx-auto rounded-full object-cover shadow-md transition-transform duration-300 ease-in-out group-hover:scale-105"
+                    />
+                  )}
                 </CardContent>
               </Card>
             ))}
