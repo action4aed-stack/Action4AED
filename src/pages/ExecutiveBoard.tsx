@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
 import Divya from "../assets/Divya.jpg";
-import Deepthi from "../assets/Deepthi.jpg"; // fixed extension to .jpg
+import Deepthi from "../assets/Deepthi.jpg";
 import Adya from "../assets/Adya.jpg";
 import Hasit from "../assets/Hasit.jpg";
 import Meghana from "../assets/Meghana.jpg";
@@ -21,13 +21,14 @@ import Prahalya from "../assets/Prahalya.jpg";
 import Sri from "../assets/Sri.jpg";
 import Kavya from "../assets/Kavya.jpg";
 
-const teamMembers = [
-  {
-    name: "Divya Paruchuri and Deepthisri Paruchuri",
-    role: "Founders",
-    bio: "We created Action4AED because we've seen firsthand how access to life-saving tools like AEDs and education about CPR can mean the difference between life and death. However, millions around the world still live without them and we felt a deep responsibility to take action. Our passion for global health equity and preventative care inspired us to help launch Action4AED, with the mission of raising cardiac awareness and providing AEDs to underserved communities.",
-    images: [Divya, Deepthi], // founders with two images
-  },
+const founders = {
+  name: "Divya Paruchuri and Deepthisri Paruchuri",
+  role: "Founders",
+  bio: "We created Action4AED because we've seen firsthand how access to life-saving tools like AEDs and education about CPR can mean the difference between life and death. However, millions around the world still live without them and we felt a deep responsibility to take action. Our passion for global health equity and preventative care inspired us to help launch Action4AED, with the mission of raising cardiac awareness and providing AEDs to underserved communities.",
+  images: [Divya, Deepthi],
+};
+
+const otherTeamMembers = [
   {
     name: "Adya Mishra",
     role: "Committee Chairwoman",
@@ -117,45 +118,56 @@ const ExecutiveBoard = () => {
             </p>
           </div>
 
-          {/* Team Members */}
+          {/* Founders - full width */}
+          <Card className="mb-16 border-2 border-primary/50 shadow-lg">
+            <CardHeader className="text-center pb-6">
+              <div className="flex justify-center gap-8 mb-6 flex-wrap">
+                {founders.images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt={`${founders.name.split(" and ")[i]}`}
+                    className="w-48 h-48 rounded-full object-cover shadow-md transition-transform duration-300 ease-in-out hover:scale-105"
+                  />
+                ))}
+              </div>
+
+              <CardTitle className="fancy-heading text-4xl leading-tight mb-4">
+                {founders.name}
+              </CardTitle>
+              <div className="text-primary font-semibold text-lg">{founders.role}</div>
+            </CardHeader>
+
+            <CardContent>
+              <p className="text-muted-foreground leading-relaxed text-base max-w-4xl mx-auto">
+                {founders.bio}
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Other team members grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
+            {otherTeamMembers.map((member, index) => (
               <Card
                 key={index}
                 className="group hover:shadow-xl transition-shadow duration-300 border-2 border-transparent hover:border-primary/50"
               >
-                <CardHeader className="text-center pb-2">
-                  {member.images ? (
-                    <div className="flex justify-center gap-4 mb-4">
-                      {member.images.map((img, i) => (
-                        <img
-                          key={i}
-                          src={img}
-                          alt={`${member.name.split(" and ")[i]}`}
-                          className="w-36 h-36 rounded-full object-cover shadow-md transition-transform duration-300 ease-in-out group-hover:scale-105"
-                        />
-                      ))}
-                    </div>
-                  ) : null}
-
-                  <CardTitle className="fancy-heading text-xl leading-tight mb-2">
+                <CardHeader className="text-center pb-4">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-24 h-24 mx-auto rounded-full object-cover shadow-md transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  />
+                  <CardTitle className="fancy-heading text-xl leading-tight mt-4 mb-2">
                     {member.name}
                   </CardTitle>
                   <div className="text-primary font-semibold">{member.role}</div>
                 </CardHeader>
 
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed text-sm mb-4">
+                  <p className="text-muted-foreground leading-relaxed text-sm">
                     {member.bio}
                   </p>
-
-                  {!member.images && (
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-24 h-24 mx-auto rounded-full object-cover shadow-md transition-transform duration-300 ease-in-out group-hover:scale-105"
-                    />
-                  )}
                 </CardContent>
               </Card>
             ))}
