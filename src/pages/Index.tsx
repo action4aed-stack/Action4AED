@@ -12,6 +12,8 @@ import GetInvolvedSection from "@/components/GetInvolvedSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import FloatingDonateButton from "@/components/FloatingDonateButton";
 import PayPalDonation from "@/components/PayPalDonation";
+import ScrollReveal from "@/components/ScrollReveal";
+import CountUpAnimation from "@/components/CountUpAnimation";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Index = () => {
@@ -140,7 +142,7 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <h2 className="fancy-heading text-5xl font-bold mb-6">Who We Are</h2>
             <h3 className="fancy-heading text-3xl font-semibold mb-8 text-primary">
               Empowering Communities Through Life-Saving Education
@@ -152,9 +154,9 @@ const Index = () => {
               and distribute AED-related materials to make life-saving knowledge
               accessible to everyone.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="bg-muted rounded-xl p-8 mb-16">
+          <ScrollReveal delay={0.2} className="bg-muted rounded-xl p-8 mb-16">
             <blockquote className="text-2xl text-center font-medium text-foreground italic max-w-4xl mx-auto">
               "We're not here to replace certification—we're here to empower,
               educate, and increase access to life-saving skills in communities
@@ -163,18 +165,21 @@ const Index = () => {
             <p className="text-center text-primary font-semibold mt-4">
               — Action4AED Mission Statement
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <ScrollReveal key={index} delay={0.3 + index * 0.1} className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">
-                  {stat.number}
+                  <CountUpAnimation 
+                    end={parseInt(stat.number.replace(/,/g, '').replace('%', ''))} 
+                    suffix={stat.number.includes('%') ? '%' : stat.number.includes(',') ? '' : ''}
+                  />
                 </div>
                 <div className="text-sm text-muted-foreground leading-tight">
                   {stat.label}
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -183,7 +188,7 @@ const Index = () => {
       {/* Work & Impact Section */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <h2 className="fancy-heading text-5xl font-bold mb-6">Our Work & Impact</h2>
             <h3 className="fancy-heading text-3xl font-semibold mb-8 text-primary">
               Addressing Critical Gaps in Emergency Preparedness
@@ -193,25 +198,24 @@ const Index = () => {
               U.S. We're working to bridge the gap between emergency situations and
               life-saving response.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {challenges.map((challenge, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-lg transition-shadow"
-              >
-                <CardHeader>
-                  <CardTitle className="fancy-heading text-xl">
-                    {challenge.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="leading-relaxed">
-                    {challenge.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <Card className="text-center hover:shadow-lg transition-shadow h-full">
+                  <CardHeader>
+                    <CardTitle className="fancy-heading text-xl">
+                      {challenge.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="leading-relaxed">
+                      {challenge.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -235,7 +239,7 @@ const Index = () => {
       {/* Donation Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <ScrollReveal className="text-center mb-16">
             <h2 className="fancy-heading text-5xl font-bold mb-6">Support Our Mission</h2>
             <h3 className="fancy-heading text-3xl font-semibold mb-8 text-primary">
               Help Us Save Lives
@@ -245,27 +249,26 @@ const Index = () => {
               information. Every dollar supports materials, AED models, travel,
               and expanding our impact.
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {donationAmounts.map((option, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-lg transition-shadow border-2 hover:border-primary/50"
-              >
-                <CardHeader>
-                  <CardTitle className="text-3xl font-bold text-primary">
-                    ${option.amount}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{option.description}</p>
-                </CardContent>
-              </Card>
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <Card className="text-center hover:shadow-lg transition-shadow border-2 hover:border-primary/50 h-full">
+                  <CardHeader>
+                    <CardTitle className="text-3xl font-bold text-primary">
+                      ${option.amount}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{option.description}</p>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
             ))}
           </div>
 
-          <div className="max-w-md mx-auto">
+          <ScrollReveal delay={0.4} className="max-w-md mx-auto">
             <h4 className="fancy-heading text-2xl font-bold text-center mb-6">
               Make a Difference Today
             </h4>
@@ -273,16 +276,16 @@ const Index = () => {
             <p className="text-center text-sm text-muted-foreground mt-4">
               Action4AED is a 501(c)(3) nonprofit. Your donation is tax-deductible.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
+          <div className="grid md:grid-cols-6 gap-8 mb-16">
             {/* Brand */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-6">
                 <div className="bg-primary-foreground text-primary px-3 py-2 rounded font-bold text-base">
                   A4A
@@ -296,7 +299,7 @@ const Index = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-2">
               <h4 className="font-semibold mb-6 text-lg">Quick Links</h4>
               <ul className="space-y-3 text-base">
                 <li>
@@ -356,9 +359,37 @@ const Index = () => {
               <p className="text-primary-foreground/80 text-base mb-6">
                 Want to get involved or learn more?
               </p>
-              <button className="bg-primary-foreground text-primary px-6 py-3 rounded font-semibold text-base hover:bg-primary-foreground/90 transition-colors">
+              <button className="bg-primary-foreground text-primary px-6 py-3 rounded font-semibold text-base hover:bg-primary-foreground/90 transition-colors mb-6">
                 Join our mission →
               </button>
+              
+              {/* Social Media Links */}
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.linkedin.com/company/action4aed/?viewAsMember=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://www.youtube.com/@Action4AED"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  YouTube
+                </a>
+                <a
+                  href="https://x.com/Action4AED"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  Twitter
+                </a>
+              </div>
             </div>
           </div>
 

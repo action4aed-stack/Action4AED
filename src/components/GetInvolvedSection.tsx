@@ -17,7 +17,7 @@ const GetInvolvedSection = () => {
         "Community impact through life-saving education"
       ],
       buttonText: "Register Your School",
-      link: "https://docs.google.com/forms/d/e/1FAIpQLSe4-LWUT3cuagyq-fOCK6OLQafkF4FlqATcIr7yiAG5-XSNlA/viewform"
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSfNVcELZ-uK6Oz9Uin6YH375wjCn0TrzUqga0dISEiz0YYS3Q/viewform?usp=dialog"
     },
     {
       icon: Users,
@@ -62,7 +62,7 @@ const GetInvolvedSection = () => {
         "Networking with other youth organizations"
       ],
       buttonText: "Partner With Us",
-      link: "https://docs.google.com/forms/d/1-_bYzdmoRcg44kCdhP2_FLkjoK9aIUAgZgq0TqSoFc8/edit"
+      link: "https://docs.google.com/forms/d/e/1FAIpQLSe4-LWUT3cuagyq-fOCK6OLQafkF4FlqATcIr7yiAG5-XSNlA/viewform?usp=dialog"
     }
   ];
 
