@@ -366,6 +366,14 @@ const Index = () => {
               {/* Social Media Links */}
               <div className="flex space-x-6">
                 <a
+                  href="https://www.instagram.com/action4aed/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  Instagram
+                </a>
+                <a
                   href="https://www.linkedin.com/company/action4aed/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"

@@ -17,9 +17,16 @@ const Navigation = () => {
 
   const scrollToSection = (href: string) => {
     if (href.startsWith("#")) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // Check if we're on a different page (not the home page)
+      if (window.location.pathname !== "/") {
+        // Navigate to home page first, then scroll to section
+        window.location.href = "/" + href;
+      } else {
+        // We're already on the home page, just scroll
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     } else {
       window.location.href = href;
