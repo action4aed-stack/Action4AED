@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import Navigation from "@/components/Navigation";
 
 import Divya from "../assets/Divya.jpg";
-import Deepthi from "../assets/Deepthi.png"; // Added Deepthi image import
+import Deepthi from "../assets/Deepthi.jpg"; // fixed extension to .jpg
 import Adya from "../assets/Adya.jpg";
 import Hasit from "../assets/Hasit.jpg";
 import Meghana from "../assets/Meghana.jpg";
@@ -26,7 +26,7 @@ const teamMembers = [
     name: "Divya Paruchuri and Deepthisri Paruchuri",
     role: "Founders",
     bio: "We created Action4AED because we've seen firsthand how access to life-saving tools like AEDs and education about CPR can mean the difference between life and death. However, millions around the world still live without them and we felt a deep responsibility to take action. Our passion for global health equity and preventative care inspired us to help launch Action4AED, with the mission of raising cardiac awareness and providing AEDs to underserved communities.",
-    images: [Divya, Deepthi], // Changed to array for founders
+    images: [Divya, Deepthi], // founders with two images
   },
   {
     name: "Adya Mishra",
