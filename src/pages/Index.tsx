@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import PartnerCarousel from "@/components/PartnerCarousel";
 import GetInvolvedSection from "@/components/GetInvolvedSection";
@@ -9,11 +9,35 @@ import FloatingDonateButton from "@/components/FloatingDonateButton";
 import PayPalDonation from "@/components/PayPalDonation";
 import heroImage from "@/assets/hero-image.jpg";
 
+// Animated counter component
+const Counter = ({ end }: { end: number }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 1500;
+    const increment = Math.ceil(end / (duration / 10));
+
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        start = end;
+        clearInterval(counter);
+      }
+      setCount(start);
+    }, 10);
+
+    return () => clearInterval(counter);
+  }, [end]);
+
+  return <span>{count.toLocaleString()}</span>;
+};
+
 const Index = () => {
   const stats = [
-    { number: "350,000", label: "Cardiac arrests occur outside hospitals annually in the U.S." },
-    { number: "10%", label: "Current survival rate for out-of-hospital cardiac arrest" },
-    { number: "6", label: "Partner Organizations" },
+    { end: 350000, label: "Cardiac arrests occur outside hospitals annually in the U.S." },
+    { end: 10, label: "Current survival rate for out-of-hospital cardiac arrest" },
+    { end: 6, label: "Partner Organizations" },
   ];
 
   const challenges = [
@@ -49,12 +73,14 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+        <img
+          src={heroImage}
+          alt="Hero"
+          className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in"
+          onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
         />
         <div className="absolute inset-0 bg-primary/40" />
-        
+
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <p className="text-xl mb-4 font-medium">Youth-Led Nonprofit</p>
           <h1 className="fancy-heading text-6xl md:text-7xl font-bold mb-6 leading-tight">
@@ -66,7 +92,7 @@ const Index = () => {
             Action4AED is dedicated to AED awareness, hands-on CPR education, and outreach to underserved communities. 
             Together, we can make life-saving knowledge accessible to everyone.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Button 
               size="lg" 
@@ -90,7 +116,7 @@ const Index = () => {
               Donate to Support Us
             </Button>
           </div>
-          
+
           <Button 
             variant="ghost" 
             className="text-white hover:bg-white/10"
@@ -125,7 +151,9 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-4xl font-bold text-primary mb-2">
+                  <Counter end={stat.end} />
+                </div>
                 <div className="text-sm text-muted-foreground leading-tight">{stat.label}</div>
               </div>
             ))}
@@ -176,6 +204,21 @@ const Index = () => {
       {/* Partners Section */}
       <div id="partners">
         <PartnerCarousel />
+
+        {/* Embed Updated Google Form */}
+        <div className="mt-12">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSe4-LWUT3cuagyq-fOCK6OLQafkF4FlqATcIr7yiAG5-XSNlA/viewform?embedded=true"
+            width="100%"
+            height="800"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            className="w-full"
+          >
+            Loading…
+          </iframe>
+        </div>
       </div>
 
       {/* Donation Section */}
@@ -198,7 +241,7 @@ const Index = () => {
                   <CardTitle className="text-3xl font-bold text-primary">${option.amount}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">{option.description}</p>
+                  <p className="text-xs text-muted-foreground">{option.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -217,13 +260,11 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 mb-16">
             {/* Brand */}
-            <div className="md:col-span-1">
+            <div>
               <div className="flex items-center space-x-2 mb-6">
-                <div className="bg-primary-foreground text-primary px-3 py-2 rounded font-bold text-base">
-                  A4A
-                </div>
+                <div className="bg-primary-foreground text-primary px-3 py-2 rounded font-bold text-base">A4A</div>
               </div>
               <h3 className="fancy-heading text-2xl font-bold mb-4">Action4AED</h3>
               <p className="text-primary-foreground/80 text-base leading-relaxed">
@@ -232,19 +273,19 @@ const Index = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="md:col-span-1">
+            <div>
               <h4 className="font-semibold mb-6 text-lg">Quick Links</h4>
               <ul className="space-y-3 text-base">
-                <li><a href="#about" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">About Us</a></li>
-                <li><a href="#projects" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Our Work</a></li>
-                <li><a href="#get-involved" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Volunteer</a></li>
-                <li><a href="#projects" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Projects</a></li>
-                <li><a href="#partners" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">Partners</a></li>
-                <li><button className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-left">Donate</button></li>
+                <li><a href="#about" className="hover:text-white">About Us</a></li>
+                <li><a href="#projects" className="hover:text-white">Our Work</a></li>
+                <li><a href="#get-involved" className="hover:text-white">Volunteer</a></li>
+                <li><a href="#projects" className="hover:text-white">Projects</a></li>
+                <li><a href="#partners" className="hover:text-white">Partners</a></li>
+                <li><button className="hover:text-white text-left">Donate</button></li>
               </ul>
             </div>
 
-            {/* Get in Touch */}
+            {/* Contact */}
             <div className="md:col-span-2">
               <h4 className="font-semibold mb-6 text-lg">Get in Touch</h4>
               <p className="text-primary-foreground/80 text-base mb-6">action4aed@gmail.com</p>
