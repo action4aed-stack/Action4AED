@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Heart, Instagram, Linkedin, Youtube, Twitter } from "lucide-react";
+import {
+  Menu,
+  Heart,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Twitter,
+} from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,12 +24,9 @@ const Navigation = () => {
 
   const scrollToSection = (href: string) => {
     if (href.startsWith("#")) {
-      // Check if we're on a different page (not the home page)
       if (window.location.pathname !== "/") {
-        // Navigate to home page first, then scroll to section
         window.location.href = "/" + href;
       } else {
-        // We're already on the home page, just scroll
         const element = document.querySelector(href);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
@@ -55,7 +59,7 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            
+
             {/* Social Links */}
             <div className="flex items-center space-x-4 ml-8 pl-8 border-l border-border">
               <a
@@ -90,6 +94,22 @@ const Navigation = () => {
               >
                 <Twitter className="h-5 w-5" />
               </a>
+              <a
+                href="https://www.tiktok.com/@action4aed4?_t=ZP-8ygVCBjoJEE&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12.3 2H16c.3 2.2 1.8 3.7 4 4v3.3c-1.5-.1-2.8-.5-4-1.3V14c0 4.4-3.6 8-8 8s-8-3.6-8-8c0-4.1 3.1-7.5 7-8v3.3c-2.2.4-4 2.4-4 4.7 0 2.6 2.1 4.7 4.7 4.7 2.6 0 4.7-2.1 4.7-4.7V2z" />
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -101,7 +121,7 @@ const Navigation = () => {
               </Button>
             </SheetTrigger>
             <SheetContent>
-                <div className="flex flex-col space-y-4 mt-8">
+              <div className="flex flex-col space-y-4 mt-8">
                 {navItems.map((item) => (
                   <button
                     key={item.label}
@@ -111,7 +131,7 @@ const Navigation = () => {
                     {item.label}
                   </button>
                 ))}
-                
+
                 <div className="pt-8 border-t border-border space-y-4">
                   <a
                     href="https://www.instagram.com/action4aed/"
@@ -148,6 +168,23 @@ const Navigation = () => {
                   >
                     <Twitter className="h-5 w-5" />
                     <span>Twitter</span>
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@action4aed4?_t=ZP-8ygVCBjoJEE&_r=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12.3 2H16c.3 2.2 1.8 3.7 4 4v3.3c-1.5-.1-2.8-.5-4-1.3V14c0 4.4-3.6 8-8 8s-8-3.6-8-8c0-4.1 3.1-7.5 7-8v3.3c-2.2.4-4 2.4-4 4.7 0 2.6 2.1 4.7 4.7 4.7 2.6 0 4.7-2.1 4.7-4.7V2z" />
+                    </svg>
+                    <span>TikTok</span>
                   </a>
                 </div>
               </div>
