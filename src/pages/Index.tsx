@@ -8,6 +8,8 @@ import ProjectsSection from "@/components/ProjectsSection";
 import FloatingDonateButton from "@/components/FloatingDonateButton";
 import PayPalDonation from "@/components/PayPalDonation";
 import heroImage from "@/assets/hero-image.jpg";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 // Animated counter component
 const Counter = ({ end }: { end: number }) => {
@@ -221,38 +223,67 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Donation Section */}
+      {/* Donation Section (REPLACED) */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="fancy-heading text-5xl font-bold mb-6">Support Our Mission</h2>
-            <h3 className="fancy-heading text-3xl font-semibold mb-8 text-primary">
-              Help Us Save Lives
-            </h3>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Your donation helps us reach more communities with lifesaving information. Every dollar supports materials, AED models, travel, and expanding our impact.
-            </p>
+            <h2 className="fancy-heading text-5xl font-bold mb-6">Support Action4AED</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {donationAmounts.map((option, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow border-2 hover:border-primary/50">
-                <CardHeader>
-                  <CardTitle className="text-3xl font-bold text-primary">${option.amount}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-xs text-muted-foreground">{option.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <Card className="h-full flex flex-col justify-between shadow-md rounded-2xl p-6 hover:shadow-lg transition duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl font-semibold">Fund a Device</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col justify-between flex-grow">
+                <p className="text-gray-600 mb-4">
+                  Contribute directly to the purchase of life-saving AEDs for underserved areas.
+                </p>
+                <a
+                  href="https://buy.stripe.com/28o7vc1DRccObJaaEH"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full mt-auto">Donate</Button>
+                </a>
+              </CardContent>
+            </Card>
 
-          <div className="max-w-md mx-auto">
-            <h4 className="fancy-heading text-2xl font-bold text-center mb-6">Make a Difference Today</h4>
-            <PayPalDonation amount="25" />
-            <p className="text-center text-sm text-muted-foreground mt-4">
-              Action4AED is a 501(c)(3) nonprofit. Your donation is tax-deductible.
-            </p>
+            <Card className="h-full flex flex-col justify-between shadow-md rounded-2xl p-6 hover:shadow-lg transition duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl font-semibold">Sponsor a School Chapter</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col justify-between flex-grow">
+                <p className="text-gray-600 mb-4">
+                  Help us expand Action4AED to schools across the country and provide students with life-saving training.
+                </p>
+                <a
+                  href="https://buy.stripe.com/dR67vc7NjcMYbaIeUY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full mt-auto">Donate</Button>
+                </a>
+              </CardContent>
+            </Card>
+
+            <Card className="h-full flex flex-col justify-between shadow-md rounded-2xl p-6 hover:shadow-lg transition duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl font-semibold">Partner With Us</CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col justify-between flex-grow">
+                <p className="text-gray-600 mb-4">
+                  Collaborate as a corporate, community, or medical partner to expand our reach and impact.
+                </p>
+                <a
+                  href="https://buy.stripe.com/4gw5m8bZF4EidqM4gh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full mt-auto">Donate</Button>
+                </a>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
