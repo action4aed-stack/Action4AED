@@ -47,7 +47,7 @@ const FloatingDonateButton = () => {
                   className="h-auto p-3 flex-col"
                 >
                   <span className="text-lg font-bold">${option.amount}</span>
-                  <span className="text-[10px] text-center mt-1 leading-tight">
+                  <span className="text-[8px] text-center mt-1 leading-tight">
                     {option.description}
                   </span>
                 </Button>

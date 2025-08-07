@@ -283,9 +283,9 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-6 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-12 mb-16">
             {/* Brand */}
-            <div className="md:col-span-2">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="flex items-center space-x-2 mb-6">
                 <div className="bg-primary-foreground text-primary px-3 py-2 rounded font-bold text-base">
                   A4A
@@ -299,7 +299,7 @@ const Index = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="md:col-span-2">
+            <div className="flex flex-col items-center text-center">
               <h4 className="font-semibold mb-6 text-lg">Quick Links</h4>
               <ul className="space-y-3 text-base">
                 <li>
@@ -351,7 +351,7 @@ const Index = () => {
             </div>
 
             {/* Get in Touch */}
-            <div className="md:col-span-2">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h4 className="font-semibold mb-6 text-lg">Get in Touch</h4>
               <p className="text-primary-foreground/80 text-base mb-6">
                 action4aed@gmail.com
@@ -364,7 +364,7 @@ const Index = () => {
               </button>
               
               {/* Social Media Links */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-6">
                 <a
                   href="https://www.linkedin.com/company/action4aed/?viewAsMember=true"
                   target="_blank"

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Heart, Instagram } from "lucide-react";
+import { Menu, Heart, Instagram, Linkedin, Youtube, Twitter } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,6 +59,30 @@ const Navigation = () => {
               >
                 <Instagram className="h-5 w-5" />
               </a>
+              <a
+                href="https://www.linkedin.com/company/action4aed/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@Action4AED"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Youtube className="h-5 w-5" />
+              </a>
+              <a
+                href="https://x.com/Action4AED"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
@@ -81,7 +105,7 @@ const Navigation = () => {
                   </button>
                 ))}
                 
-                <div className="pt-8 border-t border-border">
+                <div className="pt-8 border-t border-border space-y-4">
                   <a
                     href="https://www.instagram.com/action4aed/"
                     target="_blank"
@@ -89,7 +113,34 @@ const Navigation = () => {
                     className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
                   >
                     <Instagram className="h-5 w-5" />
-                    <span>Follow us on Instagram</span>
+                    <span>Instagram</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/action4aed/?viewAsMember=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@Action4AED"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Youtube className="h-5 w-5" />
+                    <span>YouTube</span>
+                  </a>
+                  <a
+                    href="https://x.com/Action4AED"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Twitter className="h-5 w-5" />
+                    <span>Twitter</span>
                   </a>
                 </div>
               </div>
